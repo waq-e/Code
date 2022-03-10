@@ -1,19 +1,24 @@
-// Fig. 3.2: Account.h
-// Account class that contains a name data member
-// and member functions to set and get its value.
-#include <string> // enable program to use C++ string data type
+// Fig. 3.4: Account.h
+// Account class with a constructor that initializes the account name.
+#include <string>
 
 class Account {
 public:
-	// member function that sets the account name in the object
-	void setName(std::string accountName) {
-		name = accountName; // store the account name
+	// constructor initializes data member name with parameter accountName
+	explicit Account(std::string accountName)
+				: name{accountName} { // member initializer
+				// empty body
 	}
 
-	// member function that retrieves the account name from the object
+	// function to set the account name
+	void setName(std::string accountName) {
+		name = accountName;
+	}
+
+	// function to retrieve the account name
 	std::string getName() const {
-		return name; // return name's value to this function's caller
+		return name;
 	}
 private:
-	std::string name; // data member containing account holder's name
+	std::string name; // account name data member
 }; // end class Account
