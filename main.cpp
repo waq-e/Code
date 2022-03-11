@@ -1,43 +1,38 @@
-// Fig. 4.12: ClassAverage.cpp
-// Solving the class-average problem using sentinel-controlled iteration.
+// Fig. 4.14: Analysis.cpp
+// Analysis of examination results using nested control statements.
 #include <iostream>
-#include <iomanip> // parameterized stream manipulators
 using namespace std;
 
 int main() {
-	// initialization phase
-	int total{0}; // initialize sum of grades
-	unsigned int gradeCounter{0}; // initialize # of grades entered so far
+	// initializing variables in declarations
+	unsigned int passes{0};
+	unsigned int failures{0};
+	unsigned int studentCounter{1};
 
-	// processing phase
-	// prompt for input and read grade from user
-	cout << "Enter grade or -1 to quit: ";
-	int grade;
-	cin >> grade;
+	// process 10 students using counter-controlled loop
+	while (studentCounter <= 10) {
+		// prompt user for input and obtain value from user
+		cout << "Enter result (1 = pass, 2 = fail): ";
+		int result;
+		cin >> result;
 
-	// loop until sentinel value read from user
-	while (grade != -1) {
-		total = total + grade; // add grade to total
-		gradeCounter = gradeCounter + 1; // increment counter
+		// if...else is nested in the while statement
+		if (result == 1) {
+			passes = passes + 1;
+		}
+		else {
+			failures = failures + 1;
+		}
 
-		// prompt for input and read next grade from user
-		cout << "Enter grade or -1 to quit: ";
-		cin >> grade;
+		// increment studentCounter so loop eventually terminates
+		studentCounter = studentCounter + 1;
 	}
 
-	// termination phase
-	// if user entered at least one grade...
-	if (gradeCounter != 0) {
-		// use number with decimal point to calculate average of grades
-		double average{static_cast<double>(total) / gradeCounter};
+	// termination phase; prepare and display results
+	cout << "Passed: " << passes << "\nFailed: " << failures << endl;
 
-		// display total and average (with two digits of precision)
-		cout << "\nTotal of the " << gradeCounter
-		     << " grades entered is " << total;
-		cout << setprecision(2) << fixed;
-		cout << "\nClass average is " << average << endl;
-	}
-	else { // no grades were entered, so output appropriate message
-		cout << "No grades were entered" << endl;
+	// determine whether more than 8 students passed
+	if (passes > 8) {
+		cout << "Bonus to instructor!" << endl;
 	}
 }
