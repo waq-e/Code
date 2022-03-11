@@ -1,41 +1,17 @@
-// Fig. 3.9: AccountTest.cpp
-// Displaying and updating Account balances.
+// Fig. 4.7: StudentTest.cpp
+// Create and test Student objects.
 #include <iostream>
-#include "Account.h"
-
+#include "Student.h"
 using namespace std;
 
-int main()
-{
-	Account account1{"Jane Green", 50};
-	Account account2{"John Blue", -7};
+int main() {
+	Student account1{"Jane Green", 93};
+	Student account2{"John Blue", 72};
 
-	// display initial balance of each object
-	cout << "account1: " << account1.getName() << " balance is $"
-	     << account1.getBalance();
-	cout << "\naccount2: " << account2.getName() << " balance is $"
-	     << account2.getBalance();
-
-	cout << "\n\nEnter deposit amount for account1: "; // prompt
-	int depositAmount;
-	cin >> depositAmount; // obtain user input
-	cout << "adding " << depositAmount << " to account1 balance";
-	account1.deposit(depositAmount); // add to account1's balance
-
-	// display balances
-	cout << "\n\naccount1: " << account1.getName() << " balance is $"
-	     << account1.getBalance();
-	cout << "\naccount2: " << account2.getName() << " balance is $"
-	     << account2.getBalance();
-
-	cout << "\n\nEnter deposit amount for account2: "; // prompt
-	cin >> depositAmount; // obtain user input
-	cout << "adding " << depositAmount << " to account2 balance";
-	account2.deposit(depositAmount); // add to account2 balance
-
-	// display balances
-	cout << "\n\naccount1: " << account1.getName() << " balance is $"
-	     << account1.getBalance();
-	cout << "\naccount2: " << account2.getName() << " balance is $"
-	     << account2.getBalance() << endl;
+	cout << account1.getName() << "'s letter grade equivalent of "
+	     << account1.getAverage() << " is: "
+	     << account1.getLetterGrade() << "\n";
+	cout << account2.getName() << "'s letter grade equivalent of "
+	     << account2.getAverage() << " is: "
+	     << account2.getLetterGrade() << endl;
 }

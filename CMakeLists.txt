@@ -3,4 +3,4 @@ project(Code)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Code main.cpp Account.h)
+add_executable(Code main.cpp Account.h Student.h)
