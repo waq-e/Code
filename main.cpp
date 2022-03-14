@@ -7,16 +7,16 @@ using namespace std;
 
 int main() {
 	// set floating-point number format
-	cout << fixed << setprecision(2);
+	cout << fixed << setprecision(2);  // fixed & setprecision are sticky.
 
 	double principal{1000.00}; // initial amount before interest
 	double rate{0.05}; // interest rate
 
 	cout << "Initial principal: " << principal << endl;
-	cout << "   Interest rate:	" << rate << endl;
+	cout << "    Interest rate: " << rate << endl;
 
 	// display headers
-	cout << "\nYear" << setw(20) << "Amount on deposit" << endl;
+	cout << "\nYear" << setw(20) << "Amount on deposit" << endl;  // setw non sticky.
 
 	// calculate amount on deposit for each of ten years
 	for (unsigned int year{1}; year <= 10; year++) {
