@@ -1,15 +1,14 @@
-// Fig. 5.1: WhileCounter.cpp
-// Counter-controlled iteration with the while iteration statement.
+// Fig. 5.2: ForCounter.cpp
+// Counter-controlled iteration with the for iteration statement.
 #include <iostream>
-
 using namespace std;
 
 int main() {
-	unsigned int counter{1}; // declare and initialize control variable
-
-	while (counter <= 10) { // loop-continuation condition
+// for statement header includes initialization,
+// loop-continuation condition and increment
+	for (unsigned int counter{1}; counter <= 10; ++counter) {
 		cout << counter << " ";
-		++counter; // increment control variable
 	}
+
 	cout << endl;
 }
