@@ -1,15 +1,29 @@
-// Fig. 5.5: Sum.cpp
-// Summing integers with the for statement.
+// Fig. 5.6: Interest.cpp
+// Compound-interest calculations with for.
 #include <iostream>
+#include <iomanip>
+#include <cmath> // for pow function
 using namespace std;
 
 int main() {
-	unsigned int total{0};
+	// set floating-point number format
+	cout << fixed << setprecision(2);
 
-	// total even integers from 2 through 20
-	for (unsigned int number{2}; number <= 20; number += 2) {
-		total += number;
+	double principal{1000.00}; // initial amount before interest
+	double rate{0.05}; // interest rate
+
+	cout << "Initial principal: " << principal << endl;
+	cout << "   Interest rate:	" << rate << endl;
+
+	// display headers
+	cout << "\nYear" << setw(20) << "Amount on deposit" << endl;
+
+	// calculate amount on deposit for each of ten years
+	for (unsigned int year{1}; year <= 10; year++) {
+		// calculate amount on deposit at the end of the specified year
+		double amount = principal * pow(1.0 + rate, year);
+
+		// display the year and the amount
+		cout << setw(4) << year << setw(20) << amount << endl;
 	}
-
-	cout << "Sum is " << total << endl;
 }
